@@ -1,0 +1,8 @@
+CK:
+Customer - add order (sort, linked list, queue)
+WK:
+Chef - view order + update order status (queue)
+ELVIS:
+General - login + menu
+
+
