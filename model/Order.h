@@ -1,21 +1,21 @@
 #include <iostream>
-
+#pragma once
 using namespace std;
 
 class Order{
   private:
-    string foodID;
+    int foodID;
     string foodName;
     double price;
     int quantity;
   public:
     Order();
-    Order(string foodID, string foodName, double price, int quantity);
-    string getFoodID();
+    Order(int foodID, string foodName, double price, int quantity);
+    int getFoodID();
     string getFoodName();
     int getPrice();
     int getQuantity();
-    void setFoodID(string foodID);
+    void setFoodID(int foodID);
     void setFoodName(string foodName);
     void setPrice(double price);
     void setQuantity(int quantity);

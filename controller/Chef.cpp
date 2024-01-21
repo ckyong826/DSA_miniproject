@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include "./model/Chef.h"
+#include "../model/Chef.h"
 
 using namespace std;
 

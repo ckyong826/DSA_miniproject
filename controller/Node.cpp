@@ -1,24 +1,7 @@
 #include <iostream>
 #include <iomanip>
-#include "./model/Node.h"
+#include "../model/Node.h"
+#include "../model/Order.h"
+#include "../model/Customer.h"
 
 using namespace std;
-
-NodeOrder::NodeOrder() {
-    this->next = NULL;
-}
-
-NodeOrder::NodeOrder(vector <Order> order) {
-    this->order = order;
-    this->next = NULL;
-}
-
-NodeCustomer::NodeCustomer() {
-    this->next = NULL;
-}
-
-NodeCustomer::NodeCustomer(Customer customer) {
-    this->customer = customer;
-    this->next = NULL;
-}
-

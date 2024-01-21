@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Node.h"
-
+#pragma once
 using namespace std;
 
 class QueueOrder {
@@ -11,8 +11,8 @@ class QueueOrder {
     public:
         QueueOrder();
         bool isEmpty();
-        void enqueue(vector <Order> order, int price);
+        void enqueue(NodeOrder* newNode);
         void dequeue();
         int getSize();
-        vector <Order> getFront();
+        NodeOrder* getFront();
 };

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
-#include "./model/ListNode.h"
-#include "Order.cpp"
+#include "../model/ListNode.h"
+#include "../model/Order.h"
 
 using namespace std;
 
@@ -14,8 +14,7 @@ bool QueueOrder::isEmpty() {
     return (this->head == NULL && this->tail == NULL);
 }
 
-void QueueOrder::enqueue(vector <Order> order, int price) {
-    NodeOrder *newNode = new NodeOrder(order);
+void QueueOrder::enqueue(NodeOrder* newNode) {
     if (isEmpty()) {
         this->head = newNode;
         this->tail = newNode;
@@ -44,7 +43,7 @@ int QueueOrder::getSize() {
     return this->size;
 }
 
-vector <Order> QueueOrder::getFront() {
-    return this->head->order;
+NodeOrder* QueueOrder::getFront() {
+    return this->head;
 }
 

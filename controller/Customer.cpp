@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include "./model/Customer.h"
+#include "../model/Customer.h"
 
 using namespace std;
 
