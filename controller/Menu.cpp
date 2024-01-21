@@ -57,6 +57,10 @@ void Menu::viewMenuCustomer(){
         cout<<endl;
 }
 
+int Menu::getMenuSize(){
+    return 10;
+}
+
 string Menu::getFoodName(int foodID){
     return this->foodName[foodID-1];
 }
