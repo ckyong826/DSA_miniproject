@@ -10,6 +10,7 @@ class Menu{
   public:
     Menu();
     void viewMenuCustomer();
+    int getMenuSize();
     string getFoodName(int foodID);
     double getFoodPrice(int foodID);
 };

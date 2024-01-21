@@ -58,7 +58,7 @@ void Order::printOrder() {
     cout<<fixed<<setprecision(2);
     cout << "Food ID  :  " << this->foodID << endl;
     cout << "Food Name:  " << this->foodName << endl;
-    cout << "Price    :RM" << this->price << endl;
+    cout << "Price    :  RM" << this->price << endl;
     cout << "Quantity :  " << this->quantity << endl;
 }
 
