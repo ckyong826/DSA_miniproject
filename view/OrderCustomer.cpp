@@ -9,31 +9,20 @@
 
 using namespace std;
 
-void displayOrder(NodeOrder* newOrder){
-    
-    //display each order in the order
-    double total = 0;
-    cout<<fixed<<setprecision(2);
-    cout << "=====================================" << endl;
-    cout << "||          ORDER                  ||" << endl;
-    cout << "=====================================" << endl;
-    for (int i = 0; i < newOrder->order.size(); i++){
-        cout << i+1 << " Order " << endl;
-        newOrder->order[i].printOrder();
+void viewOrderCustomer(StackOrder* sOrder){
+    NodeOrder* temp = sOrder->getTop();
+    int count=1;
+    cout << "===== History Order =====" << endl;
+    while (temp){
+        cout << " Previous Order " << count << endl;
+        temp->displayOrder();
+        temp = temp->next;
+    }
         cout << endl;
-    }
-    cout << "=====================================" << endl;
-    cout << "||          TOTAL                  ||" << endl;
-    cout << "=====================================" << endl;
-    for (int i = 0; i < newOrder->order.size(); i++){
-        total += newOrder->order[i].getPrice() * newOrder->order[i].getQuantity();
-    }
-    cout << "Total: RM" << total << endl;
-    cout << "=====================================" << endl;
-    cout<<endl;
+        cout << "=========================" << endl;
 }
 
-void OrderCustomer(QueueOrder* qOrder){
+void AddOrderCustomer(QueueOrder* qOrder,StackOrder* sOrder){
     Menu menu;
     NodeOrder* newOrder = new NodeOrder;
     
@@ -74,7 +63,7 @@ void OrderCustomer(QueueOrder* qOrder){
                 cout << "Delete Food" << endl;
                 SortOrder sort;
                 sort.quickSortOrder(0, newOrder->order.size() - 1, newOrder);
-                displayOrder(newOrder);
+                newOrder->displayOrder();
                 int i;
                 cout << "Enter Order Number: ";
                 cin >> i;
@@ -84,7 +73,7 @@ void OrderCustomer(QueueOrder* qOrder){
                     continue;
                 }
                 newOrder->order.erase(newOrder->order.begin() + i - 1);
-                displayOrder(newOrder);
+                newOrder->displayOrder();
                 cout << "Delete Success" << endl;
                 cout<<endl;
                 }
@@ -97,11 +86,15 @@ void OrderCustomer(QueueOrder* qOrder){
                 cout << "View Sorted Order" << endl;
                 SortOrder sort;
                 sort.quickSortOrder(0, newOrder->order.size() - 1, newOrder);
-                displayOrder(newOrder);
+                newOrder->displayOrder();
                 }
         else if (choice==5){
                 cout << "Checkout" << endl;
                 qOrder->enqueue(newOrder);
+                sOrder->push(newOrder);
+                cout << "Checkout Success" << endl;
+                cout<<endl;
+                choice = 0;
                 }
         else if (choice==6){
                 cout << "Back" << endl;
@@ -118,9 +111,3 @@ void OrderCustomer(QueueOrder* qOrder){
 }
 
 
-
-int main(){
-    QueueOrder* order = new QueueOrder();
-    OrderCustomer(order);
-    return 0;
-}

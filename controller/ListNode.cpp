@@ -5,45 +5,81 @@
 
 using namespace std;
 
-QueueOrder::QueueOrder() {
-    this->head = NULL;
-    this->tail = NULL;
+void QueueOrder::createQueue() {
+    front = NULL;
+    rear = NULL;
+    size = 0;
 }
-
 bool QueueOrder::isEmpty() {
-    return (this->head == NULL && this->tail == NULL);
+    return (front == NULL);
 }
 
 void QueueOrder::enqueue(NodeOrder* newNode) {
     if (isEmpty()) {
-        this->head = newNode;
-        this->tail = newNode;
+        front = newNode;
+        rear = newNode;
     } else {
-        this->tail->next = newNode;
-        this->tail = newNode;
+        rear->next = newNode;
+        rear = newNode;
     }
-    this->size++;
+    size++;
 }
 
 void QueueOrder::dequeue() {
-    if (!isEmpty()) {
-        NodeOrder *temp = this->head;
-        if (this->head == this->tail) {
-            this->head = NULL;
-            this->tail = NULL;
-        } else {
-            this->head = this->head->next;
-        }
+    if (isEmpty()) {
+        cout << "Queue is empty!" << endl;
+    } else {
+        NodeOrder *temp = front;
+        front = front->next;
         delete temp;
-        this->size--;
+        size--;
     }
 }
 
 int QueueOrder::getSize() {
-    return this->size;
+    return size;
 }
 
 NodeOrder* QueueOrder::getFront() {
-    return this->head;
+    return front;
+}
+
+
+void StackOrder::createStack() {
+    top = NULL;
+    size = 0;
+}
+
+bool StackOrder::isEmpty() {
+    return (top == NULL);
+}
+
+void StackOrder::push(NodeOrder* newNode) {
+    if (isEmpty()) {
+        top = newNode;
+    } else {
+        newNode->next = top;
+        top = newNode;
+    }
+    size++;
+}
+
+void StackOrder::pop() {
+    if (isEmpty()) {
+        cout << "Stack is empty!" << endl;
+    } else {
+        NodeOrder *temp = top;
+        top = top->next;
+        delete temp;
+        size--;
+    }
+}
+
+int StackOrder::getSize() {
+    return size;
+}
+
+NodeOrder* StackOrder::getTop() {
+    return top;
 }
 

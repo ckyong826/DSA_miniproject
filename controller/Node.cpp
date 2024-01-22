@@ -6,6 +6,30 @@
 
 using namespace std;
 
+void NodeOrder::displayOrder(){
+    
+    //display each order in the order
+    double total = 0;
+    cout<<fixed<<setprecision(2);
+    cout << "=====================================" << endl;
+    cout << "||          ORDER                  ||" << endl;
+    cout << "=====================================" << endl;
+    for (int i = 0; i < order.size(); i++){
+        cout << i+1 << " Order " << endl;
+        order[i].printOrder();
+        cout << endl;
+    }
+    cout << "=====================================" << endl;
+    cout << "||          TOTAL                  ||" << endl;
+    cout << "=====================================" << endl;
+    for (int i = 0; i < order.size(); i++){
+        total += order[i].getPrice() * order[i].getQuantity();
+    }
+    cout << "Total: RM" << total << endl;
+    cout << "=====================================" << endl;
+    cout<<endl;
+}
+
 void SortOrder::quickSortOrder(int left, int right, NodeOrder *node) {
     int i, j;
     partitionOrder(left, right, i, j, node);

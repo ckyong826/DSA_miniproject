@@ -9,7 +9,7 @@ struct NodeOrder {
     public:
         vector <Order> order;
         NodeOrder *next;
-        
+        void displayOrder();
 };
 
 class SortOrder{
