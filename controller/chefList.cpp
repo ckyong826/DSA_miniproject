@@ -1,4 +1,3 @@
-// chefList.cpp
 #include "../model/ChefList.h"
 
 ChefNode::ChefNode() : next(NULL) {}
