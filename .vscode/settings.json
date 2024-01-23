@@ -6,6 +6,7 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "xstring": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "xutility": "cpp"
   }
 }
