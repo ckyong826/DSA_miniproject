@@ -8,6 +8,7 @@ class Order{
     string foodName;
     double price;
     int quantity;
+    string status;
   public:
     Order();
     Order(int foodID, string foodName, double price, int quantity);
@@ -21,4 +22,6 @@ class Order{
     void setQuantity(int quantity);
     void setNameANDPrice(string foodID);
     void printOrder();
+    string getStatus() const;
+    void setStatus(const std::string& status);
 };
