@@ -9,6 +9,7 @@ Order::Order() {
     this->foodName = "";
     this->price = 0;
     this->quantity = 0;
+    status = "Pending";
 }
 
 Order::Order(int foodID, string foodName, double price, int quantity) {
@@ -16,6 +17,7 @@ Order::Order(int foodID, string foodName, double price, int quantity) {
     this->foodName = foodName;
     this->price = price;
     this->quantity = quantity;
+    status = "Pending";
 }
 
 int Order::getFoodID() {
@@ -60,5 +62,13 @@ void Order::printOrder() {
     cout << "Food Name:  " << this->foodName << endl;
     cout << "Price    :  RM" << this->price << endl;
     cout << "Quantity :  " << this->quantity << endl;
+}
+
+string Order::getStatus() const {
+    return status;
+}
+
+void Order::setStatus(const std::string& newStatus) {
+    status = newStatus;
 }
 
