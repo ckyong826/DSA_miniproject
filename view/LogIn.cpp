@@ -16,22 +16,16 @@ bool authentication(string username, string password, int choice, CustomerList* 
 
     if(choice == 1){
        Customer *customer =  customerList->findCustomer(username);
-       if(customer != NULL){
-            if(customer->getCustomerPassword()==password){
-            return 1;
-            }
-        }
+        if(customer != NULL && customer->getCustomerPassword()==password)
+        return 1;
     }
     else if (choice == 2){
         Chef *chef =  chefList->findChef(username);
-        if(chef != NULL){
-            if(chef->getChefPassword()==password){
-            return 1;
-            }
-        }
-        cout<<"Log in failed. No user found or incorrect password."<<endl;
-        return 0;
+        if(chef != NULL && chef->getChefPassword()==password)
+        return 1;
     }
+    cout<<"Log in failed. No user found or incorrect password."<<endl;
+    return 0;
 }
 
 void displayMenu(int choice){

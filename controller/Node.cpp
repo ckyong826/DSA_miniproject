@@ -3,6 +3,7 @@
 #include "../model/Node.h"
 #include "../model/Order.h"
 #include "../model/Customer.h"
+#pragma once
 
 using namespace std;
 

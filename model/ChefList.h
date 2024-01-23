@@ -1,4 +1,4 @@
-#ifndef CHEFLIST.H
+#ifndef CHEFLIST_H
 #define CHEFLIST_H
 
 #include "Chef.h"

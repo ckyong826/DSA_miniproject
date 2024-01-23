@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#pragma once
 #include "../model/ListNode.h"
 #include "../model/Order.h"
 
