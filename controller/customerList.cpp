@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../model/customerList.h"
-#include "../model/Customer.h"
+#include "../controller/Customer.cpp"
 using namespace std;
 
 CustomerNode::CustomerNode() : next(NULL) {}

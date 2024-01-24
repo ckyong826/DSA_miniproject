@@ -1,4 +1,5 @@
 #include "../model/ChefList.h"
+#include "../controller/Chef.cpp"
 
 ChefNode::ChefNode() : next(NULL) {}
 

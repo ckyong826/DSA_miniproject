@@ -35,7 +35,7 @@ void displayMenu(int choice){
 
     if (choice==1){
         cout<<"Welcome! What would you like to do ?"<<endl;
-        cout<<"1. View order \n 2. Add order \n 0. Exit"<<endl;
+        cout<<"1. View order\n2. Add order\n0. Exit"<<endl;
         cin>>task;
         while (task==1||task==2){
             if (task==1)
@@ -47,7 +47,7 @@ void displayMenu(int choice){
 
     if (choice == 2){
         cout<<"Welcome! What would you like to do ?"<<endl;
-        cout<<"1. View order \n 2. Update order \n 0. Exit"<<endl;
+        cout<<"1. View order\n2. Update order\n0. Exit"<<endl;
         cin>>task;
         while (task==1||task==2){
             if (task==1)
@@ -69,7 +69,7 @@ int main(){
     bool valid = 0;
     do{
         cout<<"Please select your role:"<<endl;
-        cout<<"1. Customer \n 2. Chef"<<endl;
+        cout<<"1. Customer\n2. Chef"<<endl;
         cin>>choice;
         cout<<"== Log In =="<<endl;
         cout<<"User ID: "<<endl;
