@@ -1,6 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include "../controller/ListNode.cpp"
+#include "../controller/Order.cpp" 
+
 
 using namespace std;
 
@@ -21,8 +23,21 @@ void viewOrdersChef(QueueOrder* qOrder) {
     for (int i = 0; i < frontOrder->order.size(); i++) {
         cout << i + 1 << ". Order " << endl;
         frontOrder->order[i].printOrder();
-        // You can display status here based on the order's status in your model
         cout << "Status: " << frontOrder->order[i].getStatus() << endl;
         cout << "=====================================" << endl;
     }
+}
+
+int main() {
+    QueueOrder qOrder; 
+    // Adding some sample orders for testing
+    Order order1(1, "Burger", 10.99, 2);
+    Order order2(2, "Pizza", 15.99, 1);
+
+    // Setting different statuses for demonstration
+    order1.setStatus("Pending");
+    order2.setStatus("Preparing");
+
+    viewOrdersChef(&qOrder);
+    return 0;
 }
