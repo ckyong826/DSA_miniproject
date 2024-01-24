@@ -21,8 +21,11 @@ bool authentication(string username, string password, int choice, CustomerList* 
     }
     else if (choice == 2){
         Chef *chef =  chefList->findChef(username);
-        if(chef != NULL && chef->getChefPassword()==password)
-        return 1;
+        string chefPassword = chef->getChefPassword();
+        if(chef != NULL && password == chefPassword){
+            cout<<"Log in successful."<<endl;
+            return 1;
+        }
     }
     cout<<"Log in failed. No user found or incorrect password."<<endl;
     return 0;
@@ -34,7 +37,7 @@ void displayMenu(int choice){
     StackOrder *sOrder = new StackOrder;
 
     if (choice==1){
-        cout<<"Welcome! What would you like to do ?"<<endl;
+        cout<<"Welcome Customer! What would you like to do ?"<<endl;
         cout<<"1. View order \n 2. Add order \n 0. Exit"<<endl;
         cin>>task;
         while (task==1||task==2){
@@ -46,7 +49,7 @@ void displayMenu(int choice){
     }
 
     if (choice == 2){
-        cout<<"Welcome! What would you like to do ?"<<endl;
+        cout<<"Welcome Chef! What would you like to do ?"<<endl;
         cout<<"1. View order \n 2. Update order \n 0. Exit"<<endl;
         cin>>task;
         while (task==1||task==2){
@@ -61,8 +64,10 @@ void displayMenu(int choice){
 
 int main(){
 
-    CustomerList* customerList;
-    ChefList* chefList;
+    CustomerList* customerList = new CustomerList;
+    ChefList* chefList = new ChefList;
+    chefList->createChefList();
+    cout<<"Test";
 
     string username, password;
     int choice;
@@ -72,11 +77,10 @@ int main(){
         cout<<"1. Customer \n 2. Chef"<<endl;
         cin>>choice;
         cout<<"== Log In =="<<endl;
-        cout<<"User ID: "<<endl;
+        cout<<"User ID: ";
         cin.ignore();
         getline(cin, username);
         cout<<"Password: ";
-        cin.ignore();
         getline(cin, password);
         
         valid = authentication(username, password, choice, customerList, chefList);

@@ -19,6 +19,7 @@ private:
 
 public:
     ChefList();
+    void createChefList();
     void addChef(string chefID, string chefName, string chefPassword);
     void deleteChef(string chefID);
     Chef* findChef(string chefID);

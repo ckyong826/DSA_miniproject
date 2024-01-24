@@ -1,6 +1,6 @@
 #include <iostream>
 #include "../model/customerList.h"
-#include "../model/Customer.h"
+#include "Customer.cpp"
 using namespace std;
 
 CustomerNode::CustomerNode() : next(NULL) {}
@@ -8,6 +8,13 @@ CustomerNode::CustomerNode() : next(NULL) {}
 CustomerNode::CustomerNode(Customer customer) : customer(customer), next(NULL) {}
 
 CustomerList::CustomerList() : head(NULL) {}
+
+void CustomerList::createCustomerList(){
+    addCustomer("C001", "John", "Jalan Merdeka", "081234567890", "test1234");
+    addCustomer("C002", "Doe", "Jalan Merdeka", "081234567890", "test1234");
+    addCustomer("C003", "Jane", "Jalan Merdeka", "081234567890", "test1234");
+
+}
 
 void CustomerList::addCustomer(string customerID, string customerName, string customerAddress, string customerPhone, string customerPassword) {
     Customer customer(customerID, customerName, customerAddress, customerPhone, customerPassword);
