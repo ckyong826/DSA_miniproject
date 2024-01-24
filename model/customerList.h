@@ -19,7 +19,7 @@ private:
 
 public:
     CustomerList();
-    void createCustomerList();
+    void createSampleCustomerList();
     void addCustomer(string customerID, string customerName, string customerAddress, string customerPhone, string customerPassword);
     void deleteCustomer(string customerID);
     Customer* findCustomer(string customerID);

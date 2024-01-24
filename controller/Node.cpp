@@ -31,6 +31,7 @@ void NodeOrder::displayOrder(){
     cout<<endl;
 }
 
+
 void SortOrder::quickSortOrder(int left, int right, NodeOrder *node) {
     int i, j;
     partitionOrder(left, right, i, j, node);

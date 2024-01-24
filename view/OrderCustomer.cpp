@@ -12,15 +12,14 @@ using namespace std;
 void viewOrderCustomer(StackOrder* sOrder){
     NodeOrder* temp = sOrder->getTop();
     int count=1;
-    cout << "===== History Order =====" << endl;
-    while (temp){
-        cout << " Previous Order " << count << endl;
+    cout << "===== Top Order =====" << endl;
         temp->displayOrder();
-        temp = temp->next;
-    }
         cout << endl;
         cout << "=========================" << endl;
+    system ("pause");
+    system ("cls");
 }
+
 
 void AddOrderCustomer(QueueOrder* qOrder,StackOrder* sOrder){
     Menu menu;
@@ -76,10 +75,14 @@ void AddOrderCustomer(QueueOrder* qOrder,StackOrder* sOrder){
                 newOrder->displayOrder();
                 cout << "Delete Success" << endl;
                 cout<<endl;
+                system ("pause");
+                system ("cls");
                 }
         else if (choice==3){
                 cout << "View Menu" << endl;
                 menu.viewMenuCustomer();
+                system ("pause");
+                system ("cls");
                 }
         else if (choice==4){
                 int choice2;
@@ -87,6 +90,8 @@ void AddOrderCustomer(QueueOrder* qOrder,StackOrder* sOrder){
                 SortOrder sort;
                 sort.quickSortOrder(0, newOrder->order.size() - 1, newOrder);
                 newOrder->displayOrder();
+                system ("pause");
+                 system ("cls");     
                 }
         else if (choice==5){
                 cout << "Checkout" << endl;
@@ -95,10 +100,11 @@ void AddOrderCustomer(QueueOrder* qOrder,StackOrder* sOrder){
                 cout << "Checkout Success" << endl;
                 cout<<endl;
                 choice = 0;
+                system ("pause");
+                system ("cls");
                 }
-        else if (choice==6){
+        else if (choice==0){
                 cout << "Back" << endl;
-                choice = 0;
                 }
         else{
                 cout << "Wrong Input" << endl;

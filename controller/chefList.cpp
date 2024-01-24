@@ -10,7 +10,7 @@ ChefList::ChefList() : head(NULL) {
 
 }
 
-void ChefList::createChefList(){
+void ChefList::createSampleChefList(){
     //Pre Data Set for Cheflist
     addChef("C001", "Elvis", "test1234");
     addChef("C002", "CK", "test1234");

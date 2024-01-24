@@ -9,7 +9,7 @@ CustomerNode::CustomerNode(Customer customer) : customer(customer), next(NULL) {
 
 CustomerList::CustomerList() : head(NULL) {}
 
-void CustomerList::createCustomerList(){
+void CustomerList::createSampleCustomerList(){
     addCustomer("C001", "John", "Jalan Merdeka", "081234567890", "test1234");
     addCustomer("C002", "Doe", "Jalan Merdeka", "081234567890", "test1234");
     addCustomer("C003", "Jane", "Jalan Merdeka", "081234567890", "test1234");

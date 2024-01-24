@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void updateOrderStatusChef(QueueOrder* qOrder) {
+void viewOrdersChef(QueueOrder* qOrder) {
     // Assuming QueueOrder has a method to get the front order
     NodeOrder* frontOrder = qOrder->getFront();
 
@@ -13,17 +13,28 @@ void updateOrderStatusChef(QueueOrder* qOrder) {
         return;
     }
 
-    // Displaying orders for the chef to select
+    // Displaying orders with status
     cout << "=====================================" << endl;
-    cout << "||       SELECT ORDER TO UPDATE    ||" << endl;
+    cout << "||       ORDERS FOR PROCESSING     ||" << endl;
     cout << "=====================================" << endl;
 
     for (int i = 0; i < frontOrder->order.size(); i++) {
         cout << i + 1 << ". Order " << endl;
         frontOrder->order[i].printOrder();
+        // You can display status here based on the order's status in your model
         cout << "Status: " << frontOrder->order[i].getStatus() << endl;
         cout << "=====================================" << endl;
     }
+    cout << endl;
+    system ("pause");
+    system ("cls");
+}
+
+void updateOrderStatusChef(QueueOrder* qOrder) {
+    // Assuming QueueOrder has a method to get the front order
+    NodeOrder* frontOrder = qOrder->getFront();
+
+    viewOrdersChef(qOrder);
 
     // Chef selects an order to update
     int choice;
@@ -46,7 +57,22 @@ void updateOrderStatusChef(QueueOrder* qOrder) {
         }
 
         cout << "Order status updated successfully." << endl;
+
     } else {
         cout << "Invalid input. Please enter a valid order number." << endl;
     }
+    system ("pause");
+    system ("cls");
+    int choice2;
+    cout << "Is the order completed? (1 for 'yes', 2 for 'no'):";
+    cin >> choice2;
+    if (choice2 == 1) {
+        qOrder->dequeue();
+        cout << "Order removed from queue." << endl;
+    } else {
+        cout << "Order status remains unchanged." << endl;
+    }
+    system ("pause");
+    system ("cls");
+
 }

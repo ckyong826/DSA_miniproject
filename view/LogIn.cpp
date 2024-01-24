@@ -7,8 +7,7 @@
 #include "../controller/ChefList.cpp"
 #include "../view/OrderCustomer.cpp"
 #include "../controller/ListNode.cpp"
-#include "../view/UpdateOrderChef.cpp"
-#include "../view/ViewOrderChef.cpp"
+#include "../view/OrderChef.cpp"
 
 using namespace std;
 
@@ -23,7 +22,6 @@ bool authentication(string username, string password, int choice, CustomerList* 
         Chef *chef =  chefList->findChef(username);
         string chefPassword = chef->getChefPassword();
         if(chef != NULL && password == chefPassword){
-            cout<<"Log in successful."<<endl;
             return 1;
         }
     }
@@ -35,57 +33,40 @@ void displayMenu(int choice){
     int task;
     QueueOrder *qOrder = new QueueOrder;
     StackOrder *sOrder = new StackOrder;
+    qOrder->createQueue();
+    sOrder->createStack();
+    qOrder->createSampleQueueOrder();
+    sOrder->createSampleStackOrder();
 
     if (choice==1){
-        cout<<"Welcome Customer! What would you like to do ?"<<endl;
-        cout<<"1. View order \n 2. Add order \n 0. Exit"<<endl;
-        cin>>task;
-        while (task==1||task==2){
-            if (task==1)
-            viewOrderCustomer(sOrder);
-            else
+        do{
+            cout<<"Welcome Customer! What would you like to do ?"<<endl;
+            cout<<"1. View order\n2. Add order\n0. Exit"<<endl;
+            cin>>task;
+            if (task==1){
+                viewOrderCustomer(sOrder);
+            }
+            
+            else if (task==2)
             AddOrderCustomer(qOrder,sOrder);
-        }
+            else
+            return;
+        }while (task==1||task==2);
     }
 
     if (choice == 2){
-        cout<<"Welcome Chef! What would you like to do ?"<<endl;
-        cout<<"1. View order \n 2. Update order \n 0. Exit"<<endl;
-        cin>>task;
-        while (task==1||task==2){
+        do{
+            cout<<"Welcome Chef! What would you like to do ?"<<endl;
+            cout<<"1. View order\n2. Update order\n0. Exit"<<endl;
+            cin>>task;
             if (task==1)
             viewOrdersChef(qOrder);
-            else
+            else if (task==2)
             updateOrderStatusChef(qOrder);
+            else 
+            return;
         }
+        while (task==1||task==2);
     }
 }
 
-
-int main(){
-
-    CustomerList* customerList = new CustomerList;
-    ChefList* chefList = new ChefList;
-    chefList->createChefList();
-    cout<<"Test";
-
-    string username, password;
-    int choice;
-    bool valid = 0;
-    do{
-        cout<<"Please select your role:"<<endl;
-        cout<<"1. Customer \n 2. Chef"<<endl;
-        cin>>choice;
-        cout<<"== Log In =="<<endl;
-        cout<<"User ID: ";
-        cin.ignore();
-        getline(cin, username);
-        cout<<"Password: ";
-        getline(cin, password);
-        
-        valid = authentication(username, password, choice, customerList, chefList);
-    }
-    while (valid == 0);
-    displayMenu(choice);
-    return 0;
-}
