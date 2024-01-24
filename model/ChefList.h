@@ -1,4 +1,4 @@
-#ifndef CHEFLIST.H
+#ifndef CHEFLIST_H
 #define CHEFLIST_H
 
 #include "Chef.h"
@@ -19,6 +19,7 @@ private:
 
 public:
     ChefList();
+    void createSampleChefList();
     void addChef(string chefID, string chefName, string chefPassword);
     void deleteChef(string chefID);
     Chef* findChef(string chefID);

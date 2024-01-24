@@ -15,6 +15,7 @@ class QueueOrder {
         void dequeue();
         int getSize();
         NodeOrder* getFront();
+        void createSampleQueueOrder();
 };
 
 
@@ -23,7 +24,9 @@ class StackOrder {
         NodeOrder *top;
         int size;
     public:
+        
         void createStack();
+        void createSampleStackOrder();
         bool isEmpty();
         void push(NodeOrder* newNode);
         void pop();

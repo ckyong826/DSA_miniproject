@@ -1,11 +1,21 @@
-// chefList.cpp
 #include "../model/ChefList.h"
+#include "Chef.cpp"
 
 ChefNode::ChefNode() : next(NULL) {}
 
 ChefNode::ChefNode(Chef chef) : chef(chef), next(NULL) {}
 
-ChefList::ChefList() : head(NULL) {}
+ChefList::ChefList() : head(NULL) {
+
+
+}
+
+void ChefList::createSampleChefList(){
+    //Pre Data Set for Cheflist
+    addChef("C001", "Elvis", "test1234");
+    addChef("C002", "CK", "test1234");
+    addChef("C003", "WK", "test1234");
+}
 
 void ChefList::addChef(string chefID, string chefName, string chefPassword) {
     Chef chef(chefID, chefName, chefPassword);

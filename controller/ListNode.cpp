@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#pragma once
 #include "../model/ListNode.h"
 #include "../model/Order.h"
 
@@ -9,6 +10,20 @@ void QueueOrder::createQueue() {
     front = NULL;
     rear = NULL;
     size = 0;
+}
+
+void QueueOrder::createSampleQueueOrder(){
+    NodeOrder *nodeOrder1 = new NodeOrder;
+    NodeOrder *nodeOrder2 = new NodeOrder;
+    
+    nodeOrder1->order.push_back(Order{1, "XXL Chicken Chop", 12.00 , 2});
+    nodeOrder1->order.push_back(Order{2, "Cabin Chicken Chop", 7.80 , 2});
+    
+    nodeOrder2->order.push_back(Order{4, "Fish n Chip", 12.00 , 2});
+    nodeOrder2->order.push_back(Order{5, "Salmon Set", 21.30 , 2});
+
+    enqueue(nodeOrder1);
+    enqueue(nodeOrder2);
 }
 bool QueueOrder::isEmpty() {
     return (front == NULL);
@@ -45,10 +60,24 @@ NodeOrder* QueueOrder::getFront() {
 }
 
 
+
 void StackOrder::createStack() {
     top = NULL;
     size = 0;
 }
+
+void StackOrder::createSampleStackOrder(){
+    NodeOrder *nodeOrder3 = new NodeOrder;
+    NodeOrder *nodeOrder4 = new NodeOrder;
+    nodeOrder3->order.push_back(Order{1, "XXL Chicken Chop", 12.00 , 2});
+    nodeOrder3->order.push_back(Order{2, "Cabin Chicken Chop", 7.80 , 2});
+    nodeOrder4->order.push_back(Order{4, "Fish n Chip", 12.00 , 2});
+    nodeOrder4->order.push_back(Order{5, "Salmon Set", 21.30 , 2});
+    push(nodeOrder3);
+    push(nodeOrder4);
+}
+
+
 
 bool StackOrder::isEmpty() {
     return (top == NULL);

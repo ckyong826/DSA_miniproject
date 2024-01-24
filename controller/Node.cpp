@@ -3,6 +3,7 @@
 #include "../model/Node.h"
 #include "../model/Order.h"
 #include "../model/Customer.h"
+#pragma once
 
 using namespace std;
 
@@ -29,6 +30,7 @@ void NodeOrder::displayOrder(){
     cout << "=====================================" << endl;
     cout<<endl;
 }
+
 
 void SortOrder::quickSortOrder(int left, int right, NodeOrder *node) {
     int i, j;
